@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 # rubocop:disable Metrics/LineLength
 $:.push File.expand_path("../lib", __FILE__)
 
