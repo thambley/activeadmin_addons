@@ -18,6 +18,7 @@ class SearchSelectInput < ActiveAdminAddons::InputBase
     load_data_attr(:url, default: url_from_method)
     load_data_attr(:response_root, default: tableize_method)
     load_data_attr(:display_name, default: "name")
+    load_data_attr(:display_name_template, default: "")
     load_data_attr(:minimum_input_length, default: 1)
     load_data_attr(:width, default: "80%")
     load_data_attr(
