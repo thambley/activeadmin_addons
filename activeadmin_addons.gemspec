@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   s.add_dependency "sass-rails"
   s.add_dependency "select2-rails", "~> 4.0"
   s.add_dependency "xdan-datetimepicker-rails", "~> 2.5.1"
-  s.add_dependency "require_all"
 
   s.add_development_dependency "rails", "~> 4.2"
   s.add_development_dependency "coffee-rails"
