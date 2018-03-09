@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
   s.add_dependency "xdan-datetimepicker-rails", "~> 2.5.1"
 
   s.add_development_dependency "rails", "~> 4.2"
-  s.add_development_dependency "coffee-rails"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "enumerize", "~> 2.0"
   s.add_development_dependency "paperclip"
