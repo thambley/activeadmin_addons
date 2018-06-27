@@ -48,6 +48,11 @@ $(function() {
         displayTemplate = new Template(displayNameTemplateText);
         displayTemplateSpecified = true;
       }
+      var ransackScope = element.data('ransack-scope');
+      var ransackScopeSpecified = false;
+      if (ransackScope.length > 0) {
+        ransackScopeSpecified = true;
+      }
 
       var selectOptions = {
         width: width,
@@ -60,22 +65,25 @@ $(function() {
           delay: 250,
           cache: true,
           data: function(params) {
-            var textQuery = { m: 'or' };
-            fields.forEach(function(field) {
-              if (field == 'id') {
-                textQuery[field + '_eq'] = params.term;
-              } else {
-                textQuery[field + '_' + predicate] = params.term;
-              }
-            });
+            var query = { order: order };
+            if (ransackScopeSpecified) {
+              query.q = {};
+              query.q[ransackScope] = params.term;
+            } else {
+              var textQuery = { m: 'or' };
+              fields.forEach(function(field) {
+                if (field == 'id') {
+                  textQuery[field + '_eq'] = params.term;
+                } else {
+                  textQuery[field + '_' + predicate] = params.term;
+                }
+              });
 
-            var query = {
-              order: order,
-              q: {
+              query.q = {
                 groupings: [textQuery],
                 combinator: 'and',
-              },
-            };
+              };
+            }
 
             return query;
           },
